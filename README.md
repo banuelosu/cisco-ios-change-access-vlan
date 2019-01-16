@@ -20,7 +20,7 @@ pip3 intall textfsm
 ```
 python3 main.py
 ```
-The script will ask the user to enter a device name (cisco-ios). The script will login and identify all the VLANs on the switch. After, a list of 'notconnected' interfaces with 'no description' will be presented to the user. The user will make their selection and the VLAN will be configured on the interfaces as an access VLAN.
+The script will ask the user to enter a device name (cisco-ios). The script will login and identify all the VLANs on the switch. After, a list of 'notconnected' interfaces with 'no description' excluding TenG interfaces will be presented to the user. The user will make their selection and the VLAN will be configured on the interfaces as an access VLAN.
 
 Notes:
 ```
