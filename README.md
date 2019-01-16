@@ -5,7 +5,7 @@
 python3
 pip3 install netmiko
 pip3 install getpass
-pip3 intall textfsm
+pip3 install textfsm
 ```
 
 ### Python Modules Used
