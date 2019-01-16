@@ -3,7 +3,6 @@ import sys
 import os
 import getpass
 import textfsm
-import json
 from netmiko import ConnectHandler
 from netmiko.ssh_exception import NetMikoAuthenticationException
 from netmiko.ssh_exception import NetMikoTimeoutException
@@ -84,7 +83,7 @@ def main():
     vlan_dict = {int(vlan[0]): vlan[1] for vlan in vlan_results} # Restructuring data into a dictionary, making keys as integers for easier sorting
 
     print('\nList of available VLANs:')
-    for vlan in sorted(vlan_dict.keys()): # Can directly sort the dictionary keys within Python3.X
+    for vlan in sorted(vlan_dict): # Can directly sort the dictionary keys within Python3.X
         print(' - {:4}, {:}'.format(vlan, vlan_dict[vlan]))
 
     while True:
@@ -122,7 +121,7 @@ Comma separated list and/or ranges are supported.\n''')
                     # Identify lower and upper bounds of range, convert to int, add 1 to upper bound, 
                     # create list based on these and add to original list
                     interfaces.extend(list(range(int(num.split('-')[0]), int(num.split('-')[1]) + 1))) 
-                    interfaces = list(map(str, interfaces)) # Convert all values in list to strings
+                    interfaces = list(map(str, interfaces)) # Convert all values in list to strings - need for using 'in' expression
                     interfaces.pop(interfaces.index(num)) # Remove the old entry that has the '-'
             
             interfaces = sorted(set(map(int, interfaces))) # Convert all items to integers, unique, and sort
